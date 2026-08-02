@@ -71,6 +71,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Matrix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/03/Matrix/" class="article-date">
+  <time class="dt-published" datetime="2026-08-02T17:19:46.000Z" itemprop="datePublished">2026-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/03/Matrix/">Matrix</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="记录一些踩过的数学坑"><a href="#记录一些踩过的数学坑" class="headerlink" title="记录一些踩过的数学坑"></a>记录一些踩过的数学坑</h3><p>Unity使用列主序（Column-major）</p>
+<ul>
+<li>在内存上, Matrix4X4的16个float数据排列时，是一列一列存放的</li>
+<li>在逻辑上，把向量看作列向量（4x1矩阵），在乘法中用矩阵左乘向量（M*V）</li>
+<li>Unity shader中的内置变换矩阵，如如 UNITY_MATRIX_VP 和 unity_ObjectToWorld，都是列主序的。所以 mul(UNITY_MATRIX_VP, mul(unity_ObjectToWorld, v.vertex)) 是标准写法</li>
+<li>与UE的区别：<ul>
+<li>Unity视向量为列向量，矩阵左乘向量（M * V）；UE视向量为行向量，矩阵右乘向量（V * M）</li>
+<li>存储时，Unity使用列主序，UE在hlsl中是行主序</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/03/Matrix/" data-id="cuid8m2ZimJL43VX5d9Ip5Dai" data-title="Matrix" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ShadowNote" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/26/ShadowNote/" class="article-date">
@@ -132,7 +181,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="0728"><a href="#0728" class="headerlink" title="0728"></a>0728</h3><p>经过非常缓慢的古法手工建模，终于初具人形了.<br>自己做出来的东西，就会觉得很可爱（虽然只是照着教程做罢了）.<br>或许应该多记录下自己的产出.<br><img src="/Images/Coloso_VRChat_Modeling_0726.png" alt="Coloso VRChat Modeling 0726"></p>
+        <h3 id="0728"><a href="#0728" class="headerlink" title="0728"></a>0728</h3><p>经过非常缓慢的古法手工建模，终于初具人形了（可喜可贺<br>自己做出来的东西，就会觉得很可爱（虽然只是照着教程做罢了）.<br>或许应该多记录下自己做的东西.<br><img src="/Images/Coloso_VRChat_Modeling_0726.png" alt="Coloso VRChat Modeling 0726"></p>
+<h3 id="0803"><a href="#0803" class="headerlink" title="0803"></a>0803</h3><p>更新一下之前的进度，对模型进行了细化（头发、服装等位置加了Solidfy和更多细节之类的）<br>以及完成了初步的绑定，现在在进行展UV.因为布线混乱，所以展UV也很麻烦.<br>还具有人形的时候：<br><img src="/Images/Coloso_VRChat_Modeling_0803.png" alt="Coloso VRChat Modeling 0803"></p>
 
       
     </div>
@@ -218,7 +268,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">August 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
     </div>
   </div>
 
@@ -229,6 +279,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/08/03/Matrix/">Matrix</a>
+          </li>
         
           <li>
             <a href="/2026/07/26/ShadowNote/">ShadowNote</a>
