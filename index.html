@@ -71,6 +71,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Substance-Designer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/04/Substance-Designer/" class="article-date">
+  <time class="dt-published" datetime="2026-08-04T14:08:44.000Z" itemprop="datePublished">2026-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/04/Substance-Designer/">Substance Designer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="UV填充方式"><a href="#UV填充方式" class="headerlink" title="UV填充方式"></a>UV填充方式</h3><p>UV空间比邻：仅在 2D UV 平面上进行外扩计算。直接抓取当前 UV 岛边界最外侧的像素颜色，沿着边界向外推（Push&#x2F;Stretch）进行射线状延伸或膨胀填充。<br>3D空间比邻：结合 3D 模型的拓扑结构进行填充计算。当渲染到某条 UV 缝合线边界时，系统会去找在 3D 空间中与该缝合线无缝连接的“对面”那个面的像素颜色，并将其复制&#x2F;混合填充到当前 UV 岛外的 Padding 区域中。</p>
+<h3 id="图层合成选项"><a href="#图层合成选项" class="headerlink" title="图层合成选项"></a>图层合成选项</h3><ol>
+<li>基础&#x2F;覆盖类<br>• Copy &#x2F; Normal（直接覆盖）<br>• 作用： 上层直接盖住下层（根据不透明度混合）。<br>• 场景： 贴上不透明的贴纸、花纹、材质遮罩（Mask）。</li>
+<li>变暗&#x2F;减法类（保留较暗&#x2F;低值区域）<br>• Multiply（正片叠底）<br>• 算法： 像素值相乘（A x B）。白色（1）变透明，黑色（0）保留。<br>• 场景： 叠加环境光遮蔽（AO）、添加污垢、压暗局部颜色、合并黑色遮罩（Mask 与操作）。<br>• Subtract（减去）<br>• 作用： 用下层减去上层的值。<br>• 场景： 雕刻凹坑、在高度图上扣除某些区域（例如在平地上挖出沟壑）。<br>• Min (Darken)（变暗&#x2F;最小值）<br>• 作用： 比较上下层，取更暗（数值更小）的像素。<br>• 场景： 限制高度图的最大值，确保叠加后不会超过某个高度 limit。</li>
+<li>变亮&#x2F;加法类（保留较亮&#x2F;高值区域）<br>• Screen（滤色）<br>• 算法： 类似投影叠加，黑色（0）透明，白色（1）保留，效果比 Add 更柔和，不易爆白。<br>• 场景： 叠加灰尘、积雪、提亮 BaseColor、混合柔和的光照或高光细节。<br>• Add (Linear Dodge)（线性发光&#x2F;加算）<br>• 算法： 像素直接相加（）。<br>• 场景： 叠加高度图（Height Map）的突起细节（如在墙面上叠加凸起的砖纹或颗粒），制作自发光（Emissive）。<br>• Max (Lighten)（变亮&#x2F;最大值）<br>• 作用： 比较上下层，取更亮（数值更大）的像素。<br>• 场景： 合并两个不同形状的高度图（例如将凸起的螺丝放置在钢板上，保留最高点）。</li>
+<li>对比&#x2F;叠加类（中间调混合）<br>• Overlay（叠加）<br>• 算法： 暗部更暗（Multiply），亮部更亮（Screen），保留下层的明暗对比。<br>• 场景： 为灰度纹理快速上色、增加材质的表面对比度和质感细节。</li>
+<li>法线与特殊通道类<br>• Overlay &#x2F; Reoriented Normal（法线叠加&#x2F;定向法线混合）<br>• 作用： 在法线通道（Normal Map）中使用时，用于将细微的法线纹理（如布料纹理、皮肤毛孔）正确叠加到宏观的法线大结构上，而不会破坏法线贴图的方向向量。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/04/Substance-Designer/" data-id="cuidjJTdyCw33z5-ebLJEbCBr" data-title="Substance Designer" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Matrix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/08/03/Matrix/" class="article-date">
@@ -279,6 +325,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/08/04/Substance-Designer/">Substance Designer</a>
+          </li>
         
           <li>
             <a href="/2026/08/03/Matrix/">Matrix</a>
