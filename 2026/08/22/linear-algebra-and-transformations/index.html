@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>图形学基础：坐标、向量与矩阵变换 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="本文整理图形学与 Unity 中最常用的线性代数概念：坐标系、点与向量、矩阵，以及齐次坐标下的仿射变换。文中约定向量为列向量。 坐标系三维笛卡尔坐标系由一个原点和三条坐标轴构成。若三条基向量两两垂直，且长度均为 1，则称它们为标准正交基（orthonormal basis）。  正交：两个向量垂直。 单位长度：向量的模为 1。 坐标系按轴的朝向可分为左手系和右手系。  Unity 的模型空间与世界">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图形学基础：坐标、向量与矩阵变换">
+<meta property="og:url" content="http://example.com/2026/08/22/linear-algebra-and-transformations/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文整理图形学与 Unity 中最常用的线性代数概念：坐标系、点与向量、矩阵，以及齐次坐标下的仿射变换。文中约定向量为列向量。 坐标系三维笛卡尔坐标系由一个原点和三条坐标轴构成。若三条基向量两两垂直，且长度均为 1，则称它们为标准正交基（orthonormal basis）。  正交：两个向量垂直。 单位长度：向量的模为 1。 坐标系按轴的朝向可分为左手系和右手系。  Unity 的模型空间与世界">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-22T10:30:55.882Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="线性代数">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -181,9 +188,7 @@ mjx-container[display="true"] + br {
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-linear-algebra-and-transformations" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-linear-algebra-and-transformations" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/08/22/linear-algebra-and-transformations/" class="article-date">
   <time class="dt-published" datetime="2026-08-21T16:00:00.000Z" itemprop="datePublished">2026-08-22</time>
@@ -200,8 +205,8 @@ mjx-container[display="true"] + br {
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/22/linear-algebra-and-transformations/">图形学基础：坐标、向量与矩阵变换</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      图形学基础：坐标、向量与矩阵变换
     </h1>
   
 
@@ -418,251 +423,19 @@ R_z(\theta)=
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Substance-Designer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/08/04/Substance-Designer/" class="article-date">
-  <time class="dt-published" datetime="2026-08-04T14:08:44.000Z" itemprop="datePublished">2026-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/04/Substance-Designer/">Substance Designer</a>
-    </h1>
+    <a href="/2026/08/04/Substance-Designer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Substance Designer</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="UV填充方式"><a href="#UV填充方式" class="headerlink" title="UV填充方式"></a>UV填充方式</h3><p>UV空间比邻：仅在 2D UV 平面上进行外扩计算。直接抓取当前 UV 岛边界最外侧的像素颜色，沿着边界向外推（Push&#x2F;Stretch）进行射线状延伸或膨胀填充。<br>3D空间比邻：结合 3D 模型的拓扑结构进行填充计算。当渲染到某条 UV 缝合线边界时，系统会去找在 3D 空间中与该缝合线无缝连接的“对面”那个面的像素颜色，并将其复制&#x2F;混合填充到当前 UV 岛外的 Padding 区域中。</p>
-<h3 id="图层合成选项"><a href="#图层合成选项" class="headerlink" title="图层合成选项"></a>图层合成选项</h3><ol>
-<li>基础&#x2F;覆盖类<br>• Copy &#x2F; Normal（直接覆盖）<br>• 作用： 上层直接盖住下层（根据不透明度混合）。<br>• 场景： 贴上不透明的贴纸、花纹、材质遮罩（Mask）。</li>
-<li>变暗&#x2F;减法类（保留较暗&#x2F;低值区域）<br>• Multiply（正片叠底）<br>• 算法： 像素值相乘（A x B）。白色（1）变透明，黑色（0）保留。<br>• 场景： 叠加环境光遮蔽（AO）、添加污垢、压暗局部颜色、合并黑色遮罩（Mask 与操作）。<br>• Subtract（减去）<br>• 作用： 用下层减去上层的值。<br>• 场景： 雕刻凹坑、在高度图上扣除某些区域（例如在平地上挖出沟壑）。<br>• Min (Darken)（变暗&#x2F;最小值）<br>• 作用： 比较上下层，取更暗（数值更小）的像素。<br>• 场景： 限制高度图的最大值，确保叠加后不会超过某个高度 limit。</li>
-<li>变亮&#x2F;加法类（保留较亮&#x2F;高值区域）<br>• Screen（滤色）<br>• 算法： 类似投影叠加，黑色（0）透明，白色（1）保留，效果比 Add 更柔和，不易爆白。<br>• 场景： 叠加灰尘、积雪、提亮 BaseColor、混合柔和的光照或高光细节。<br>• Add (Linear Dodge)（线性发光&#x2F;加算）<br>• 算法： 像素直接相加（）。<br>• 场景： 叠加高度图（Height Map）的突起细节（如在墙面上叠加凸起的砖纹或颗粒），制作自发光（Emissive）。<br>• Max (Lighten)（变亮&#x2F;最大值）<br>• 作用： 比较上下层，取更亮（数值更大）的像素。<br>• 场景： 合并两个不同形状的高度图（例如将凸起的螺丝放置在钢板上，保留最高点）。</li>
-<li>对比&#x2F;叠加类（中间调混合）<br>• Overlay（叠加）<br>• 算法： 暗部更暗（Multiply），亮部更亮（Screen），保留下层的明暗对比。<br>• 场景： 为灰度纹理快速上色、增加材质的表面对比度和质感细节。</li>
-<li>法线与特殊通道类<br>• Overlay &#x2F; Reoriented Normal（法线叠加&#x2F;定向法线混合）<br>• 作用： 在法线通道（Normal Map）中使用时，用于将细微的法线纹理（如布料纹理、皮肤毛孔）正确叠加到宏观的法线大结构上，而不会破坏法线贴图的方向向量。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/08/04/Substance-Designer/" data-id="cuidJoFTS7KiTl3I6YkgZ6w54" data-title="Substance Designer" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-Matrix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/08/03/Matrix/" class="article-date">
-  <time class="dt-published" datetime="2026-08-02T17:19:46.000Z" itemprop="datePublished">2026-08-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/03/Matrix/">Matrix</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一些踩过的数学坑"><a href="#记录一些踩过的数学坑" class="headerlink" title="记录一些踩过的数学坑"></a>记录一些踩过的数学坑</h3><p>Unity使用列主序（Column-major）</p>
-<ul>
-<li>在内存上, Matrix4X4的16个float数据排列时，是一列一列存放的</li>
-<li>在逻辑上，把向量看作列向量（4x1矩阵），在乘法中用矩阵左乘向量（M*V）</li>
-<li>Unity shader中的内置变换矩阵，如如 UNITY_MATRIX_VP 和 unity_ObjectToWorld，都是列主序的。所以 mul(UNITY_MATRIX_VP, mul(unity_ObjectToWorld, v.vertex)) 是标准写法</li>
-<li>与UE的区别：<ul>
-<li>Unity视向量为列向量，矩阵左乘向量（M * V）；UE视向量为行向量，矩阵右乘向量（V * M）</li>
-<li>存储时，Unity使用列主序，UE在hlsl中是行主序</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/08/03/Matrix/" data-id="cuidclspYxrtsHz-xMeG5odrL" data-title="Matrix" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ShadowNote" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/26/ShadowNote/" class="article-date">
-  <time class="dt-published" datetime="2026-07-26T07:07:32.000Z" itemprop="datePublished">2026-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/26/ShadowNote/">ShadowNote</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="角色自阴影"><a href="#角色自阴影" class="headerlink" title="角色自阴影"></a>角色自阴影</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/2010073090676237056?share_code=UvLBsRIFLMbd&utm_psn=2044115319963268842">https://zhuanlan.zhihu.com/p/2010073090676237056?share_code=UvLBsRIFLMbd&amp;utm_psn=2044115319963268842</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/26/ShadowNote/" data-id="cuidcDCRSJ84hA86y7Of2Qsko" data-title="ShadowNote" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-VRChatModeling" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/23/VRChatModeling/" class="article-date">
-  <time class="dt-published" datetime="2026-07-23T04:15:34.000Z" itemprop="datePublished">2026-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/23/VRChatModeling/">VRChatModeling</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
-<li>一定要阶段性保存</li>
-<li>做ShapeKeys前对Mirror修改器先应用，再AutoMirror<br>以防顶点数对不上</li>
-<li>非必要时不要Apply Modifier<br>理论上只有导出前才需要应用修改器</li>
-</ol>
-<h3 id="0728"><a href="#0728" class="headerlink" title="0728"></a>0728</h3><p>经过非常缓慢的古法手工建模，终于初具人形了（可喜可贺<br>自己做出来的东西，就会觉得很可爱（虽然只是照着教程做罢了）.<br>或许应该多记录下自己做的东西.<br><img src="/Images/Coloso_VRChat_Modeling_0726.png" alt="Coloso VRChat Modeling 0726"></p>
-<h3 id="0803"><a href="#0803" class="headerlink" title="0803"></a>0803</h3><p>更新一下之前的进度，对模型进行了细化（头发、服装等位置加了Solidfy和更多细节之类的）<br>以及完成了初步的绑定，现在在进行展UV.因为布线混乱，所以展UV也很麻烦.<br>还具有人形的时候：<br><img src="/Images/Coloso_VRChat_Modeling_0803.png" alt="Coloso VRChat Modeling 0803"></p>
-<h3 id="0811"><a href="#0811" class="headerlink" title="0811"></a>0811</h3><p>本来以为进入到SP绘制阶段就能迅速推进，结果画贴图和烘焙是一大坨；<br>本来以为进到引擎里就能进入舒适区，结果效果调整（来来回回改模型）和导出又是一大坨；<br>好在终于是做完了，还是很开心的. 可爱的截图：</p>
-<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-	<figure style="margin: 0; text-align: center; width: 48%;">
-		<img src="/Images/Coloso_VRChat_Modeling_finaloutput.png" alt="Coloso VRChat Modeling final" style="width: 100%; height: auto;" />
-		<figcaption style="font-size: 12px; color: #666; margin-top: 6px;">怎样？</figcaption>
-	</figure>
-	<figure style="margin: 0; text-align: center; width: 48%;">
-		<img src="/Images/Coloso_VRChat_Modeling_finaloutput02.png" alt="Coloso VRChat Modeling final02" style="width: 100%; height: auto;" />
-		<figcaption style="font-size: 12px; color: #666; margin-top: 6px;">啊就你小子是吧</figcaption>
-	</figure>
-</div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/23/VRChatModeling/" data-id="cuidQotTC6qVLI-DTwy9eXt55" data-title="VRChatModeling" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/23/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-07-23T04:01:28.215Z" itemprop="datePublished">2026-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/23/hello-world/" data-id="cuid88et8uiKHasynmzUCOUa_" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
