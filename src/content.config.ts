@@ -11,6 +11,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date().optional(),
+    cover: z.string().optional(),
     tags: z.union([z.string(), z.array(z.string()), z.null()]).optional(),
     categories: z.union([z.string(), z.array(z.string()), z.null()]).optional(),
     mathjax: z.boolean().optional()

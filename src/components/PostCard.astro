@@ -10,6 +10,11 @@ const tags = values(post.data.tags);
 <article class="post-card">
   <p class="post-date">{formatDate(postDate(post))}</p>
   <h2><a href={postPath(post)}>{post.data.title}</a></h2>
+  {post.data.cover && (
+    <a class="post-card-cover" href={postPath(post)} aria-label={'阅读：' + post.data.title}>
+      <img src={post.data.cover} alt={post.data.title + ' 预览图'} loading="lazy" />
+    </a>
+  )}
   {tags.length > 0 && (
     <p class="tag-list">
       {tags.map((tag) => <a href={'/tags/' + encodeURIComponent(tag) + '/'}>#{tag}</a>)}
