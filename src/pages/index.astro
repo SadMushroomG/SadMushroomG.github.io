@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { sortPosts } from '../lib/blog';
+
+const posts = sortPosts(await getCollection('posts'));
+---
+
+<BaseLayout title="SadMushroomG Blog" description="图形学、Unity 与创作笔记。">
+  <section class="hero">
+    <p class="eyebrow">PERSONAL NOTES</p>
+    <h1>图形学、Unity 与创作笔记</h1>
+    <p>记录学习过程、项目实践和那些值得留存的细节。</p>
+  </section>
+  <section class="post-list" aria-label="文章列表">
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</BaseLayout>

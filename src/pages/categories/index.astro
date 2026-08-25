@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { values } from '../../lib/blog';
+
+const categories = [...new Set((await getCollection('posts')).flatMap((post) => values(post.data.categories)))].sort();
+---
+
+<BaseLayout title="分类 | SadMushroomG">
+  <section class="listing">
+    <p class="eyebrow">CATEGORIES</p>
+    <h1>分类</h1>
+    <div class="taxonomy-cloud">
+      {categories.map((category) => <a href={'/categories/' + encodeURIComponent(category) + '/'}>{category}</a>)}
+    </div>
+  </section>
+</BaseLayout>

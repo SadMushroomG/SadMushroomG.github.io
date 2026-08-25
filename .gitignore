@@ -1,2 +1,13 @@
-﻿.vs/SadMushroomG.github.io/CopilotIndices
-.vs
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+dist/
+.astro/
+.deploy*/
+_multiconfig.yml
+_config*.yml
+scaffolds/
+themes/

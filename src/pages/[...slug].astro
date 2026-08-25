@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate, postDate, postPaths, values } from '../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.flatMap((post) =>
+    postPaths(post).map((path) => ({
+      params: { slug: path.slice(1, -1) },
+      props: { post }
+    }))
+  );
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const tags = values(post.data.tags);
+const categories = values(post.data.categories);
+---
+
+<BaseLayout title={post.data.title + ' | SadMushroomG'} description={post.data.title}>
+  <article class="post">
+    <header class="post-header">
+      <p class="post-date">{formatDate(postDate(post))}</p>
+      <h1>{post.data.title}</h1>
+      {(categories.length > 0 || tags.length > 0) && (
+        <div class="taxonomy">
+          {categories.map((category) => <a href={'/categories/' + encodeURIComponent(category) + '/'}>{category}</a>)}
+          {tags.map((tag) => <a href={'/tags/' + encodeURIComponent(tag) + '/'}>#{tag}</a>)}
+        </div>
+      )}
+    </header>
+    <div class="prose"><Content /></div>
+  </article>
+</BaseLayout>

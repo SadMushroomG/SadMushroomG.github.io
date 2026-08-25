@@ -1,0 +1,18 @@
+---
+import type { Post } from '../lib/blog';
+import { formatDate, postDate, postPath, values } from '../lib/blog';
+
+interface Props { post: Post; }
+const { post } = Astro.props;
+const tags = values(post.data.tags);
+---
+
+<article class="post-card">
+  <p class="post-date">{formatDate(postDate(post))}</p>
+  <h2><a href={postPath(post)}>{post.data.title}</a></h2>
+  {tags.length > 0 && (
+    <p class="tag-list">
+      {tags.map((tag) => <a href={'/tags/' + encodeURIComponent(tag) + '/'}>#{tag}</a>)}
+    </p>
+  )}
+</article>

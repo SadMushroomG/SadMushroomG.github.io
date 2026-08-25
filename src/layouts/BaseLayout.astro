@@ -1,0 +1,38 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'SadMushroomG Blog',
+  description = '图形学、Unity 与创作笔记。'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="site-name" href="/">SadMushroomG</a>
+        <nav aria-label="主导航">
+          <a href="/">文章</a>
+          <a href="/tags/">标签</a>
+          <a href="/categories/">分类</a>
+        </nav>
+      </div>
+    </header>
+    <main class="shell"><slot /></main>
+    <footer class="site-footer shell">© {new Date().getFullYear()} SadMushroomG</footer>
+  </body>
+</html>
