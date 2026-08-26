@@ -29,6 +29,10 @@ h1, h2, h3 { font-family: Georgia, "Noto Serif SC", serif; line-height: 1.28; }
 .prose h2 { font-size: 1.85rem; margin-top: 3.4rem; }
 .prose h3 { font-size: 1.35rem; margin-top: 2.4rem; }
 .prose img { max-width: 100%; height: auto; }
+.image-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.image-comparison figure { margin: 0; }
+.image-comparison img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; }
+.image-comparison figcaption { margin-top: .45rem; color: #777b78; font-size: .82rem; line-height: 1.5; text-align: center; }
 .prose pre { overflow-x: auto; padding: 1rem; background: #272a2f; color: #f5f5f5; border-radius: 6px; }
 .prose code { font-family: "Cascadia Code", Consolas, monospace; }
 .prose :not(pre) > code { background: #ebe7dc; padding: .1em .3em; border-radius: 3px; }
@@ -41,4 +45,4 @@ h1, h2, h3 { font-family: Georgia, "Noto Serif SC", serif; line-height: 1.28; }
 .taxonomy-cloud { display: flex; flex-wrap: wrap; gap: .65rem; }
 .taxonomy-cloud a { border: 1px solid #d9b6a7; border-radius: 999px; padding: .25rem .75rem; }
 .site-footer { border-top: 1px solid #ddd7ca; padding: 1.8rem 0 2.5rem; color: #777b78; font-size: .85rem; }
-@media (max-width: 600px) { .shell { width: min(100% - 28px, 920px); } .header-inner { min-height: 58px; } .hero { padding: 3.5rem 0 2.5rem; } .post { padding-top: 2.8rem; } }
+@media (max-width: 600px) { .shell { width: min(100% - 28px, 920px); } .header-inner { min-height: 58px; } .hero { padding: 3.5rem 0 2.5rem; } .post { padding-top: 2.8rem; } .image-comparison { grid-template-columns: 1fr; } }
