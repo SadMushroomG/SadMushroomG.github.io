@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="风格化自然场景练习"><title>风格化自然场景练习 | SadMushroomG</title><link rel="stylesheet" href="/_astro/blog.CCObnpq2.css"></head><body><header class="site-header"><div class="shell header-inner"><a class="site-name" href="/">SadMushroomG</a><nav aria-label="主导航"><a href="/">文章</a><a href="/tags/">标签</a><a href="/categories/">分类</a></nav></div></header><main class="shell"><article class="post"><header class="post-header"><p class="post-date">2026/08/26</p><h1>风格化自然场景练习</h1><div class="taxonomy"><a href="/categories/%E5%9C%BA%E6%99%AF%E7%BB%83%E4%B9%A0/">场景练习</a><a href="/tags/Unity/">#Unity</a><a href="/tags/Shader/">#Shader</a></div></header><div class="prose"><p>记录自然场景 Shader 的练习过程：从基础噪声扰动开始，逐步加入颜色变化、流光效果与 PBR 材质。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="风格化自然场景练习"><title>风格化自然场景练习 | SadMushroomG</title><link rel="stylesheet" href="/_astro/blog.D_TN5cg4.css"></head><body><header class="site-header"><div class="shell header-inner"><a class="site-name" href="/">SadMushroomG</a><nav aria-label="主导航"><a href="/">文章</a><a href="/tags/">标签</a><a href="/categories/">分类</a></nav></div></header><main class="shell"><article class="post"><header class="post-header"><p class="post-date">2026/08/26</p><h1>风格化自然场景练习</h1><div class="taxonomy"><a href="/categories/%E5%9C%BA%E6%99%AF%E7%BB%83%E4%B9%A0/">场景练习</a><a href="/tags/Unity/">#Unity</a><a href="/tags/Shader/">#Shader</a></div></header><div class="prose"><p>记录自然场景 Shader 的练习过程：从基础噪声扰动开始，逐步加入颜色变化、流光效果与 PBR 材质。</p>
 <h2 id="场景效果">场景效果</h2>
 <p><img src="/Images/NatureScene/NatureScenePratice_01.png" alt="自然场景练习总览"></p>
 <h2 id="草地-shader-迭代">草地 Shader 迭代</h2>
@@ -13,4 +13,27 @@
 <h3 id="05-噪声与颜色组合">05. 噪声与颜色组合</h3>
 <p><img src="/Images/NatureScene/Grass_05_NoiseCombineColor.png" alt="草地噪声与颜色组合"></p>
 <h3 id="06-pbr-效果">06. PBR 效果</h3>
-<p><img src="/Images/NatureScene/Grass_06_PBR.png" alt="草地 PBR 效果"></p></div></article></main><footer class="site-footer shell">© 2026 SadMushroomG</footer></body></html>
+<p><img src="/Images/NatureScene/Grass_06_PBR.png" alt="草地 PBR 效果"></p>
+<h2 id="如何做一棵树">如何做一棵树</h2>
+<h3 id="speedtree建模">SpeedTree建模</h3>
+<p>建模部分参考教程：<a href="https://www.youtube.com/watch?v=PPbIkk1hO7s">https://www.youtube.com/watch?v=PPbIkk1hO7s</a>
+建模部分没什么好说的，找参考然后无限调整，参数多试试就知道是什么意思了。</p>
+<p>关于导出部分，SpeedTree导出面板上支持顶点色写入RGBA通道，但是实际测试过程中发现A通道写入数据在Unity中无法被正确解析，原因暂时未知，论坛有类似反馈，所以先只使用RGB通道。
+SpeedTree支持编写导出脚本（lua）来自定义Pack顶点数据，后续可以试试。</p>
+<p><img src="/Images/NatureScene/SpeedTreeExportColorData.png" alt="Speed Tree 导出顶点色设置"></p>
+<h3 id="树木shader">树木Shader</h3>
+<h4 id="01-基本色">01. 基本色</h4>
+<p>BaseMap * BaseColor, 使用AlphaClip裁切，添加viewDir判断垂直面并隐藏（消除插片感）</p>
+<p><img src="/Images/NatureScene/Tree_01_Base.png" alt="基本色"></p>
+<h4 id="02-ao">02. AO</h4>
+<p>使用导出到color.r通道的AO数据叠加secondColor, 增加树叶的体积感</p>
+<div class="image-comparison">
+  <figure>
+    <img src="/Images/NatureScene/Tree_01_Before_Second_Color.png" alt="SecondColor 前">
+    <figcaption>添加 SecondColor 前</figcaption>
+  </figure>
+  <figure>
+    <img src="/Images/NatureScene/Tree_01_After_Second_Color.png" alt="SecondColor 后">
+    <figcaption>添加 SecondColor 后</figcaption>
+  </figure>
+</div></div></article></main><footer class="site-footer shell">© 2026 SadMushroomG</footer></body></html>
